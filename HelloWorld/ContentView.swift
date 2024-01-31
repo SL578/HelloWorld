@@ -11,24 +11,36 @@ import AVFoundation
 
 struct ContentView: View {
     var body: some View {
-        HStack {
-            MakeButton(text: "Hello World", text0: "Hello again")
-            Spacer()
-            Button {
-                let utterance = AVSpeechUtterance(string: "Hello World")
-                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-                let synthesizer = AVSpeechSynthesizer()
-                synthesizer.speak(utterance)
-            } label: {
-                Text("Hello, world.2")
-                    .fontWeight(.heavy)
-                    .font(.system(.title, design: .rounded))
+        VStack {
+            List{
+                HStack {
+                    MakeButton(text: "Hello World", text0: "Hello again")
+                    Spacer()
+                    Button {
+                        let utterance = AVSpeechUtterance(string: "Hello World")
+                        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                        let synthesizer = AVSpeechSynthesizer()
+                        synthesizer.speak(utterance)
+                    } label: {
+                        Text("Hello, world.2")
+                            .fontWeight(.heavy)
+                            .font(.system(.title, design: .rounded))
+                    }
+                    .padding()
+                    .foregroundColor(.orange)
+                    .background(Color.black)
+                    .cornerRadius(15)
+                }
+                MakeButton(text:"Hello again again", text0: "Here I am")
+                Text("hello")
+                
+                ForEach(1...5, id: \.self){ index in
+                    Text("Item \(index)")
+                }
             }
-            .padding()
-            .foregroundColor(.orange)
-            .background(Color.black)
-            .cornerRadius(15)
+            MakeButton(text:"Hello again again", text0: "Here I am")
         }
+        
     }
     
     
