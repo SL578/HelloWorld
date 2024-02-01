@@ -35,9 +35,17 @@ struct ContentView: View {
                 Text("hello")
                 
                 ForEach(1...5, id: \.self){ index in
-                    Text("Item \(index)")
+                    HStack {
+                        Image("snowday")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        Text("Item \(index)")
+                    }
+                    
                 }
+                
             }
+            .listStyle(.plain)
             MakeButton(text:"Hello again again", text0: "Here I am")
         }
         
